@@ -1,0 +1,9 @@
+FROM tanmer/rvm
+MAINTAINER Xiaohui <xiaohui@tanmer.com>
+
+ENV HOME /root
+ENV DEBIAN_FRONTEND noninteractive
+RUN /bin/bash -l -c 'rvm install 2.3.1 --disable-binary'
+RUN /bin/bash -l -c 'rvm use 2.3.1 --default'
+RUN /bin/bash -l -c 'gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/'
+RUN /bin/bash -l -c 'gem i bundler --no-ri --no-rdoc'
